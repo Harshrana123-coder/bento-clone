@@ -7,18 +7,18 @@ import { profileActions } from '@/store/profile-slice';
 import { axiosWithToken } from '@/utils/axiosjwt';
 
 const SocialLinkCard = ({ item, USERNAME }) => {
-  // 🛑 1️⃣ HARD GUARD — prevents crash
-  if (!item) return null;
-
   const dispatch = useDispatch();
   const { isSameUser } = useSelector((state) => state.ui);
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-  // ✅ 2️⃣ SAFE STATE INITIALIZATION
-  const [width, setWidth] = useState(item.width ?? 320);
-  const [height, setHeight] = useState(item.height ?? 120);
+  // ✅ SAFE STATE (no crash even if item undefined)
+  const [width, setWidth] = useState(item?.width ?? 320);
+  const [height, setHeight] = useState(item?.height ?? 120);
 
-  // ✅ 3️⃣ Resize handler (unchanged logic)
+  // 🛑 NOW condition AFTER hooks
+  if (!item) return null;
+
+  // ✅ Resize handler
   const handleResize = async (newWidth, newHeight) => {
     try {
       await axiosWithToken.put(
@@ -32,12 +32,12 @@ const SocialLinkCard = ({ item, USERNAME }) => {
     setHeight(newHeight);
   };
 
-  // ✅ 4️⃣ Safe link creation
+  // ✅ Safe link
   const link = item.baseUrl?.includes('linkedin')
     ? `https://${item.baseUrl}.com/in/${item.userName}`
     : `https://${item.baseUrl}.com/${item.userName}`;
 
-  // ✅ 5️⃣ Editable username (unchanged logic)
+  // ✅ Update username
   const updateUserName = async (e) => {
     if (!isSameUser) return;
 
@@ -69,12 +69,7 @@ const SocialLinkCard = ({ item, USERNAME }) => {
         {/* Logo */}
         <div className="px-2 pt-2">
           <div className="h-12 w-12">
-            <Image
-              src={item.logo}
-              width={44}
-              height={44}
-              alt="logo"
-            />
+            <Image src={item.logo} width={44} height={44} alt="logo" />
           </div>
         </div>
 
