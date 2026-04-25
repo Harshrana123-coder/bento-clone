@@ -2,6 +2,9 @@
 
 A sophisticated clone of the Bento application, showcasing modern web development practices with a robust frontend and backend architecture.
 
+![Vercel](https://img.shields.io/badge/Frontend-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Backend-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
+
 ## Features
 
 - **User Authentication**: Secure sign-up and login functionality using OAuth.
@@ -18,15 +21,23 @@ A sophisticated clone of the Bento application, showcasing modern web developmen
 
 ### Backend
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white) ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
-### Deployment
+---
 
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white) ![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
+## Why Supabase?
 
-## Live Demo
+Supabase was chosen instead of MongoDB because it provides:
 
-Experience the application live [https://bento-clone-app.vercel.app](https://bento-clone-app.vercel.app)
+- **Postgres Foundation**: Built on PostgreSQL, offering relational data modeling and strong consistency.
+- **Built-in Authentication**: Simplifies user management with OAuth, email, and third-party providers.
+- **Real-time Subscriptions**: Enables live updates without complex socket implementations.
+- **Scalability & Hosting**: Fully managed backend services with easy deployment and scaling.
+- **Developer Experience**: Rich SDKs, dashboard, and seamless integration with modern frontend frameworks.
+
+This makes Supabase a natural fit for projects requiring **secure authentication, real-time data, and structured relational storage**.
+
+---
 
 ## Table of Contents
 
@@ -41,8 +52,8 @@ Follow these steps to set up the project locally:
 1. **Clone the repository**
 
    ```sh
-   git clone https://github.com/Balaganesh003/bento-clone.git
-   ```
+   git clone https://github.com/Harshrana123-coder/bento-clone.git
+
 
 2. **Navigate to the project directory**
 
@@ -69,7 +80,8 @@ Follow these steps to set up the project locally:
 - `GOOGLE_CLIENT_ID`
 - `GOOGLE_CLIENT_SECRET`
 - `CLIENT_URL`
-- `MONGO_URL`
+- `SUPABASE_URL`
+- `SUPABASE_KEY`
 - `PORT`
 - `PASSWORD`
 - `JWT_SECRET`
@@ -109,6 +121,7 @@ To run this project, create a `.env` file in the root directory for the backend 
      ```sh
      cd frontend
      npm start
+     npm run dev
      ```
 
 ## Usage
